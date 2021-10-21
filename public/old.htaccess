@@ -1,0 +1,9 @@
+#To active the Url rewrite with Apache :
+RewriteEngine on
+
+# tous les fichiers avec .quelquechose sont sautés
+RewriteCond %{REQUEST_URI} \..+$
+RewriteCond %{REQUEST_URI} !\.html$
+RewriteRule .* - [L]
+# les autres sont redirigés vers le contrôleur de front
+RewriteRule ^(.*)$ index.php [QSA,L]

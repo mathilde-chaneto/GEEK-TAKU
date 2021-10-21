@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/css/flickity.css">
+{% endblock %}
+
+
+{% block javascripts %}
+	<!--<script src="/js/flickity.pkgd.js"></script>-->
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<section id="videos">
+		<h1>Videos</h1>
+		<article>
+			<div id="animate">
+			<p class="enter">Vous retrouverez ici des vidéos évènementielles comme:
+				<br>
+				la Japan Expo, Paris Games Week, le Village des jeux vidéo indépendants…
+				<br>
+				Ainsi que d’autres évènements comme les Rendez-vous de l’imaginaire.
+			</p>
+			<p class="enter">
+				Des interviews sont également proposés avec des développeurs de jeux vidéos,<br>
+				des entreprises communicant sur les jeux indépendants et bien d’autres encore.
+				</p>
+			</div>
+
+			{% for category in categoryRepo %}
+				<div class="position">
+					<h2>{{category.name}}</h2>
+				</div>
+				<div id="container-video-scroll{{category.id}}">
+					<div class="gallery js-flickity">
+						{% for videos in videosRepo %}
+						{% if category.id == videos.category.id %}
+							<div class="gallery-cell">
+									{{videos.link | raw}}
+							</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</article>
+	</section>
+
+	{{ include('main/footer.html.twig') }}
+
+{% endblock %}

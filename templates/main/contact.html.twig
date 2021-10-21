@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<section id="contact">
+		<h2>Contact</h2>
+
+		<div id="details">
+			<div id="moi">
+				<img src="/media/images/moi.jpeg" alt=""/>
+			</div>
+
+			<div id="job">
+				<p>Développeuse web FullStack</p>
+			</div>
+		</div>
+
+		<p id="infos">Pour toutes questions à propos du site, veuillez remplir ce formulaire :</p>
+		<article>
+			<h2>Formulaire de contact</h2>
+				{{form_start(form)}}
+				<div class="form-contact">
+				{{form_row(form.lastname, {'label': 'Nom :'})}}
+				</div>
+				<div class="form-contact">
+				{{form_row(form.firstname, {'label': 'Prénom :'})}}
+	
+				</div>
+				<div class="form-contact">
+				{{form_row(form.email, {'label': 'E-mail :'})}}	
+				</div>
+				<div class="form-contact">
+				{{form_row(form.message, {'label': 'Message :'})}}	
+				</div>
+			
+				<div class="form-contact">
+					<button class="submit">Envoyer</button>
+				</div>
+	
+				{{form_end(form)}}
+		</article>
+	</section>
+
+
+	{{ include('main/footer.html.twig') }}
+
+{% endblock %}

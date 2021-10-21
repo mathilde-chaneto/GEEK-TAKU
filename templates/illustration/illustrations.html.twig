@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<section id="illustrations">
+		<h1>Illustrations</h1>
+		<article>
+			<h2>Gallerie</h2>
+			<div id="animate">
+				<p class="enter">Ces illustrations ont été realisés avec des logiciels de Publication Assisté par Ordinateur (<dfn>PA0</dfn>).
+				</p>
+
+				<p class="enter">Logiciels utilisés pour ces illustrations :
+				</p>
+			</div>
+
+			<div id="softwares">
+				<img src="/media/images/illustrator.png" class="images"/>
+				<img src="/media/images/inkscape.png" class="images"/>
+			</div>
+
+			<div id="illustrations-gallery">
+				{% for illustrations in illustrationsRepo %}
+					<div class="img-details">
+						<figure>
+							<a href="{{ illustrations.images }}" alt="{{ illustrations.name }}"><img src="{{ illustrations.images }}"/></a>
+							<figcaption>
+								<p>{{ illustrations.name }}</p>
+							</figcaption>
+						</figure>
+					</div>
+				{% endfor %}
+			</article>
+		</section>
+
+		{{ include('main/footer.html.twig') }}
+
+	{% endblock %}

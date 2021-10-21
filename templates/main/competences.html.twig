@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<section id="competences">
+		<h1>Competences</h1>
+		<article>
+			<h2>Categories</h2>
+			<div class="details-container">
+				{% for competences in competencesRepo | slice (0, 5) %}
+					<div class="details">
+						<figure>
+							<div>
+								<img src="{{competences.image}}"/>
+							</div>
+							<figcaption>
+								<span>{{competences.title}}</span>
+							</figcaption>
+						</figure>
+						<div class="info">
+							<ul>
+								{% for liste in descriptionRepo %}
+									{% if liste.competences.id == competences.id %}
+										<!--to decode html in twig-->
+										<li>{{liste.name | raw}}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				{% endfor %}
+			</article>
+		</section>
+
+		{{ include('main/footer.html.twig') }}
+	{% endblock %}

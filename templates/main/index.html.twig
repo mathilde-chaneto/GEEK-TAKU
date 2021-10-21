@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="/js/track.js"></script>
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<section id="welcome">
+		{% for message in app.session.flashbag.get('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+		{% endfor %}
+		<h1>You're welcome</h1>
+		<article id="intro">
+			<h2>A propos</h2>
+			<div id="animate">
+				<p class="enter">Réalisé en HTML5, CSS3, Javascript et avec Symfony et MariaDB par moi-même
+					<span>Mathilde CHANE-TO</span>,
+					<bold>Geek-Taku</bold>
+					est mon portfolio</p>
+				<p class="enter">Geek-Taku est l'association de deux mots :
+					<em>"geek"</em>
+					et
+					<em>"otaku"</em>.<br>
+					<dfn>"Geek"</dfn>
+					pour les jeux-vidéo, les nouvelles technologies, l'informatique et Taku (pour
+					<dfn>"otaku"</dfn>
+					) pour les animés, les mangas.</p>
+				<p class="enter">Ce site s'inscrit autour de 3 spécialtés :
+				</p>
+			</div>
+
+			<div id="img-container">
+				{% for competences in  competencesRepo %}
+					{% if competences.top == true %}
+						<figure>
+							<div>
+								<img src="{{ competences.image }}"/>
+							</div>
+							<figcaption>
+								<span>
+									<a href="{{ path('geek-taku_competences') }}">{{ competences.title }}</a>
+								</span>
+							</figcaption>
+						</figure>
+					{% endif %}
+				{% endfor %}
+
+			</div>
+
+		</article>
+
+
+		<article id="knowledge">
+			<h2>
+				Competences
+			</h2>
+
+			<div id="skills" class="container in-view">
+				{% for competences in  competencesRepo %}
+					{% if competences.bottom == true %}
+						<div class="web">
+							<figure class="frame">
+								<div>
+									<img src="{{ competences.image }}"/>
+								</div>
+								<figcaption>
+									<span>
+										<a href="{{ path('geek-taku_competences') }}">
+											{{ competences.title }}
+										</a>
+									</span>
+								</figcaption>
+							</figure>
+							<p class="side">{{ competences.resume | raw }}</p>
+						</div>
+						<hr>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</article>
+	</section>
+
+	{{ include('main/footer.html.twig') }}
+{% endblock %}

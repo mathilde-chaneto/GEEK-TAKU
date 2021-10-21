@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta property="og:title" content="Site GEEK-TAKU"/>
+		<meta property="og:description" content="portfolio"/>
+		<meta property="og:type" content="production"/>
+		<meta property="og:image" content="https://geek-taku.fr/logo/background/background1.png"/>
+		<meta name="viewport" content="width=device-width"/>
+		<title>
+			{% block title %}
+				GEEK-TAKU
+
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+						                           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+
+			<link rel="stylesheet" href="/css/styles.css">
+
+		{% endblock %}
+
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+
+			<header>
+				<div class="link">
+					<a href="https://www.youtube.com/mathildenatsuki">
+						<img id="youtube" src="/logo/youtube.png" alt="Petit logo youtube" title="Lien Youtube"/>
+					</a>
+					<a href="https://www.facebook.com/natsuki.tachiba/">
+						<img id="fbk" src="/logo/fb.png" alt="Petit logo Facebook" title="Lien Facebook"/>
+					</a>
+					<a href="{{ path('geek-taku_main') }}">
+						<img id="torche" src="/logo/torche.png" alt="Torche en pixel" title="Accueil"/>
+					</a>
+
+				</div>
+
+				<div id="nav">
+					<nav>
+						<ul class="menu-large">
+
+							<li>
+								<a href="{{ path('geek-taku_main') }}">
+									Accueil
+
+								</a>
+							</li>
+
+							<li>
+								<a href="{{ path('geek-taku_video') }}">
+									Videos
+
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('geek-taku_illustrations') }}">
+									Illustrations
+
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('geek-taku_projets') }}">
+									Projets
+
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('geek-taku_competences') }}">
+									Competences
+
+								</a>
+							</li>
+
+						</ul>
+					</nav>
+
+					<form id="form1">
+						<input type="checkbox" name="burger" id="burger"/>
+						<label for="burger" id="menu-burger">
+							<span class="bar1"></span>
+							<span class="bar2"></span>
+							<span class="bar3"></span>
+						</label>
+
+                        <nav id="menu">
+                        <ul>
+                          <li><a href="{{ path('geek-taku_main') }}">Accueil</a></li>
+                          <li><a href="{{ path('geek-taku_video') }}">Videos</a></li>
+                          <li><a href="{{ path('geek-taku_illustrations') }}">Illustrations</a></li>
+                          <li><a href="{{ path('geek-taku_projets') }}">Projets</a></li>
+                          <li><a href="{{ path('geek-taku_competences') }}">Competences</a></li>
+                        </ul>
+						</nav>
+					</form>
+					</section>
+				</div>
+			</body>
+		</body>
+	</html>
+</header>
+
+<section id="background">
+	<img src="/illustration/illustration_web.png" alt=""/>
+</section>
+<main>
+
+{% endblock %}</body></html>
