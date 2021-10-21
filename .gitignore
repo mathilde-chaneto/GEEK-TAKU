@@ -14,6 +14,7 @@
 /public/videos
 /public/logo
 /public/cv_mathilde-chane-to.pdf
+/geek-taku.sql
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
