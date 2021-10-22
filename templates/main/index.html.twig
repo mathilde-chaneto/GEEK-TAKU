@@ -33,7 +33,7 @@
 					pour les jeux-vidéo, les nouvelles technologies, l'informatique et Taku (pour
 					<dfn>"otaku"</dfn>
 					) pour les animés, les mangas.</p>
-				<p class="enter">Ce site s'inscrit autour de 3 spécialtés :
+				<p class="enter">Ce site s'inscrit autour de 3 spécialités :
 				</p>
 			</div>
 
@@ -42,7 +42,7 @@
 					{% if competences.top == true %}
 						<figure>
 							<div>
-								<img src="{{ competences.image }}"/>
+								<a href="{{ path('geek-taku_competences') }}"><img src="{{ competences.image }}"/></a>
 							</div>
 							<figcaption>
 								<span>
@@ -69,7 +69,7 @@
 						<div class="web">
 							<figure class="frame">
 								<div>
-									<img src="{{ competences.image }}"/>
+									<a href="{{ path('geek-taku_competences') }}"><img src="{{ competences.image }}"/></a>
 								</div>
 								<figcaption>
 									<span>
