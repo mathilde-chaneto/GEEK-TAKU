@@ -42,9 +42,19 @@ class MainController extends AbstractController
         return $this->render('main/about.html.twig');
     }
      /**
+     * @Route("alternance-cv", name="alternance-cv")
+     */
+    public function downloadAlternanceCV(): Response
+    {
+        $file = new File('cv_alternance-mathilde-chane-to.pdf');
+        return $this->file($file);
+
+    }
+
+     /**
      * @Route("cv", name="cv")
      */
-    public function download(): Response
+    public function CVDownload(): Response
     {
         $file = new File('cv_mathilde-chane-to.pdf');
         return $this->file($file);

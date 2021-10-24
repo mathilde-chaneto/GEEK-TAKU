@@ -58,6 +58,9 @@
         font-family: sans-serif;
         align-items: center;
     }
+    article {
+        padding-top: 0;
+    }
     p,
     ul li {
         font-size: 18px;
@@ -137,6 +140,9 @@
         padding: 1em;
         text-align: center;
         text-decoration: none;
+    }
+    #menu ul li:first-of-type {
+        margin-top: 3rem;
     }
     /*--------FORM - MENU BURGER---------*/
     #form1 label {
@@ -451,8 +457,14 @@
     #videos {
         background-color: unset;
     }
+    #videos #animate {
+        padding: 10px;
+    }
     #videos article {
         border-radius: 0;
+    }
+    #videos h1 {
+        margin-bottom: 0;
     }
     .gallery {
         display: flex;
