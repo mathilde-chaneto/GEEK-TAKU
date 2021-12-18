@@ -288,7 +288,7 @@
     }
     .web {
         margin-bottom: 2rem;
-        width: 60%;
+        width: 90%;
         margin-inline: auto;
     }
     figure,
@@ -473,9 +473,9 @@
         overflow-x: hidden;
         scroll-snap-type: y scroll;
         background-color: lightgrey;
-        height: 160px;
+        height: 200px;
         padding: 10px;
-        width: 80%;
+        width: 90%;
         scrollbar-color: darkslategray lightgray;
         scrollbar-width: thin;
         margin-inline: auto;
@@ -489,7 +489,8 @@
         margin: auto;
     }
     iframe {
-        width: 240px;
+        width: 100%;
+        height: 200px;
         flex-grow: 1;
         flex-shrink: 0;
     }
@@ -890,6 +891,8 @@
     #container-video-scroll2 .gallery,
     #container-video-scroll3 .gallery {
         width: 50%;
+        overflow-x: hidden;
+        scroll-snap-type: none;
     }
     #container-video-scroll1 .gallery,
     #container-video-scroll4 .gallery {
